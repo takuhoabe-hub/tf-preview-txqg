@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
+<title>TOKYO Films</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#f3f1ec;--fg:#1c1b19;--sub:#6b665e;--line:#d6d1c6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--fg:#ecebe7;--sub:#a29e97;--line:#34322f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#141413;--fg:#ecebe7;--sub:#a29e97;--line:#34322f;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Sans","Noto Sans JP",sans-serif}
+.g{min-height:80vh;display:flex;align-items:center;justify-content:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+form{width:100%;max-width:340px;display:grid;gap:12px}
+.t{font-family:"Hiragino Mincho ProN",serif;letter-spacing:.3em;font-size:20px;text-align:center;margin:0 0 6px}
+p{margin:0;color:var(--sub);font-size:13px;text-align:center}
+input{font-size:16px;padding:12px;border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:4px}
+button{font-size:15px;padding:12px;border:0;background:var(--fg);color:var(--bg);border-radius:4px;letter-spacing:.1em}
+.err{color:#c8261d;min-height:1.2em}
+</style>
+<div class="g"><form id="f" autocomplete="off">
+<p class="t">TOKYO FILMS</p><p>関係者限定のページです。パスワードを入れてください。</p>
+<input id="pw" type="password" inputmode="text" autocapitalize="off" aria-label="パスワード" required>
+<button type="submit">開く</button><p class="err" id="err" role="alert"></p></form></div>
+<script>
+const D={"s": "o9sv+bL+HTFOzxPFiMtnPg==", "i": "r0GBNz0fbfVP7Rno", "c": "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"}, K="tf_preview_pw";
+const b=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function open_(pw){
+  const base=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+  const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b(D.s),iterations:250000,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
+  const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:b(D.i)},key,b(D.c));
+  return new TextDecoder().decode(pt);
+}
+async function go(pw,quiet){
+  try{const html=await open_(pw);try{sessionStorage.setItem(K,pw)}catch(e){}
+    document.open();document.write(html);document.close();}
+  catch(e){if(!quiet)document.getElementById("err").textContent="パスワードが違います";}
+}
+document.getElementById("f").addEventListener("submit",e=>{e.preventDefault();go(document.getElementById("pw").value,false);});
+try{const s=sessionStorage.getItem(K);if(s)go(s,true);}catch(e){}
+</script>
+</body></html>
