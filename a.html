@@ -80,6 +80,12 @@ async function unlock(pw) {
 }
 form.addEventListener("submit", event => { event.preventDefault(); void unlock(input.value); });
 once.addEventListener("click", () => { if (pendingHTML !== null) { const html = pendingHTML; pendingHTML = null; show(html); } });
-const ready = restore();
+const ready = (async () => {
+  setBusy(true);
+  if (document.readyState === "loading") {
+    await new Promise(resolve => document.addEventListener("DOMContentLoaded", resolve, {once:true}));
+  }
+  await restore();
+})();
 </script>
 </body></html>
